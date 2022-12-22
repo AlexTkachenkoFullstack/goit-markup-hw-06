@@ -416,6 +416,11 @@ background-color: inherit;
   
  }
 
+ .modal-form-input:focus{
+  outline: none;
+  border-color: var(--accent);
+ }
+
  .modal-form-item{
   display: flex;
   position: relative;
@@ -428,6 +433,10 @@ background-color: inherit;
   transform: translate(-50% -50%);
  }
 
+ .modal-form-input:focus + .modal-form-item-icon{
+  fill: var(--accent);
+ }
+
  .modal-form-textarea{
   resize: none;
   width: 360px;
@@ -437,9 +446,41 @@ background-color: inherit;
 
 
 .modal-form-checkbox-label{
+position:relative;
+
   display: inline-flex;
+  flex-direction: column;
   margin-bottom: 24px;
   margin-top: 8px;
+  padding-left: 24px;
+}
+
+.modal-form-checkbox-label::before{
+  content:" ";
+  display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+width: 16px;
+  height: 16px;
+  background-color: var(--primary-background-color);
+  border: 1.25px solid #2E2F42;
+  border-radius: 2px;
+  position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.modal-form-checkbox-input:checked + .modal-form-checkbox-label::before{
+background-color: var(--accent);
+border: 1.25px solid var(--accent);
+  border-radius: 2px;
+  background-image: url(../images/icon-checkmark-modaln.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: border-box;
+    
 }
 
  .modal-form-accept-condition{
